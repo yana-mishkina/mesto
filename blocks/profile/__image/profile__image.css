@@ -1,0 +1,10 @@
+.profile__image {
+    background-image: url('../../../images/Avatar.png');
+    width: 127.5px;
+    height: 127.5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    margin: 0 auto;
+  }

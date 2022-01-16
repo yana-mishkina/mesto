@@ -1,0 +1,20 @@
+.profile__title-edit {
+    align-self: end;
+    justify-self: start;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .profile__title-edit {
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media screen and (max-width: 530px) {
+    .profile__title-edit {
+      align-self: center;
+      margin-bottom: 0;
+    }
+  }

@@ -1,0 +1,27 @@
+.profile {
+    display: grid;
+    row-gap: 16px;
+    grid-template-columns: 172.5px 35% 150px;
+    grid-template-rows: repeat(2, 1fr);
+    margin: 0;
+    padding: 0 0 47.25px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .profile {
+      grid-template-columns: 172.5px 35%;
+      grid-template-rows: repeat(2, 1fr) 50px;
+      padding-bottom: 0;
+      row-gap: 0;
+    }
+  } 
+  
+  @media screen and (max-width: 530px) {
+    .profile {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 0;
+    }
+  } 
+  

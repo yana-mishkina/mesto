@@ -1,0 +1,20 @@
+.popup__container {
+    position: fixed;
+    top: 155px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 92% 8%;
+    grid-template-rows: 10% 90%;
+    font-family: inherit;
+  }
+  
+  @media screen and (max-width: 530px) {
+    .popup__container{
+      top: 123px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 10% 90%;
+      gap: 16px;
+    }
+  } 

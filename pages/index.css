@@ -1,204 +1,36 @@
+@import url(/vendors/fonts/fonts.css);
 @import url(/vendors/normalize.css);
-
-.page {
-  background-color: #000000;
-  min-width: 320px;
-}
-
-.header {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 45px 0 0;
-}
-
-.header__logo {
-  max-width: 142px;
-  max-height: 33px;
-  min-width: 103.74px;
-  min-height: 24.4px;
-  padding: 0 0 41px;
-  margin: 0;
-}
-
-.header__line {
-  max-width: 880px;
-  opacity: .7;
-  border: 1px solid #545454;
-  margin: 0;
-  padding: 0;
-}
-
-.content {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.profile {
-  display: grid;
-  row-gap: 16px;
-  grid-template-columns: 172.5px 35% repeat(2, auto);
-  grid-template-rows: 117px 110px;
-}
-
-.profile__avatar {
-  width: 168.75px;
-  height: 127.5px;
-  grid-row: 1/3;
-  align-self: center;
-  margin: 0;
-  padding: 0 3.75px 0 0;
-  box-sizing: border-box;
-}
-
-.profile__image {
-  background-image: url('/images/Avatar.png');
-  width: 127.5px;
-  height: 127.5px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 50%;
-  margin: 0 auto;
-}
-
-.profile__title {
-  align-self: end;
-  justify-self: start;
-  margin: 0;
-  padding: 0;
-  font-weight: 500;
-  font-size: 42px;
-  line-height: 1.14;
-  color: #FFFFFF;
-  margin: 0;
-  padding: 0 18px 0 0;
-  box-sizing: border-box;
-}
-
-.profile__subtitle {
-  align-self: start;
-  justify-self: start;
-  grid-row: 2/3;
-  grid-column: 2/4;
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  color: #FFFFFF;
-}
-
-.edit-button {
-  width: 24px;
-  height: 24px;
-  align-self: end;
-  border: 1px solid #FFFFFF;
-  box-sizing: border-box;
-  background-color: #000000;
-  padding: 0;
-  margin: 0;
-}
-
-.edit-button__image {
-  width: 10px;
-  height: 10px;
-  background-image: url(/images/Edit_Button.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.add-button {
-  width: 150px;
-  height: 50px;
-  grid-row: 1/3;
-  grid-column: 5/6;
-  align-self: center;
-  justify-self: end;
-  border: 2px solid #FFFFFF;
-  border-radius: 2px;
-  background-color: #000000;
-  padding: 0;
-  margin: 0;
-}
-
-.add-button__image {
-  width: 22px;
-  height: 22px;
-  background-image: url(/images/Add_Button.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  margin: 0 auto;
-  padding: 0;
-}
-
-
-.elements {
-  max-width: 880px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  row-gap: 20px;
-  column-gap: 17px;
-}
-
-.element {
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: calc(100% - 22px - 30px) calc(22px + 30px);
-  grid-template-rows: 282px 79px;
-  background-color: #FFFFFF;
-  border-radius: 10px;
-}
-
-.element__photo {
-  max-height: 282px;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  object-fit: cover;
-  grid-column: 1/3;
-  border-radius: 10px 10px 0 0;
-}
-
-.element__title {
-  color: #000000;
-  background-color: #FFFFFF;
-  margin: 25px auto 31px 21px;
-  padding: 0;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 1.21;
-}
-
-.element__button {
-  width: 22px;
-  height: 19px;
-  background-image: url('/images/element_button.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: #FFFFFF;
-  align-self: center;
-  justify-self: end;
-  margin-right: 30px;
-  padding: 0;
-  border: none;
-}
-
-.footer {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 67px 0 60px;
-}
-
-.footer__copyright {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 1.22;
-  color: #545454;
-}
+@import url(../blocks/page/page.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/line/line.css);
+@import url(../blocks/line/_header/line_header.css);
+@import url(../blocks/line/_popup/line_popup.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opend/popup_opened.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__field/popup__field.css);
+@import url(../blocks/close-button/close-button.css);
+@import url(../blocks/submit-button/submit-button.css);
+@import url(../blocks/content/content.css);
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__image/profile__image.css);
+@import url(../blocks/profile/__title-edit/profile__title-edit.css);
+@import url(../blocks/profile/__title/profile__title.css);
+@import url(../blocks/profile/__subtitle/profile__subtitle.css);
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__photo/element__photo.css);
+@import url(../blocks/edit-button/edit-button.css);
+@import url(../blocks/edit-button/__icon/edit-button__icon.css);
+@import url(../blocks/element/__title/element__title.css);
+@import url(../blocks/element/__button/element__button.css);
+@import url(../blocks/element/__button/_active/element__button_active.css);
+@import url(../blocks/element/__button/_disabled/element__button_disabled.css);
+@import url(../blocks/add-button/add-button.css);
+@import url(../blocks/add-button/__icon/add-button__icon.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);

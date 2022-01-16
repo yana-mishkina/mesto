@@ -1,0 +1,12 @@
+.popup {
+    display: none;
+  }
+
+.popup::before {
+  position: absolute;
+  content: '';
+  background-color: #000000;
+  opacity: .5;
+  height: 100%;
+  width: 100%;
+}
