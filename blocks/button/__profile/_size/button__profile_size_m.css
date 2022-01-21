@@ -1,4 +1,4 @@
-.add-button {
+.button__profile_size_m {
     width: 150px;
     height: 50px;
     grid-row: 1/3;
@@ -9,25 +9,22 @@
     border-radius: 2px;
     background-color: #000000;
     padding: 14px 64px;
-    margin: 0;
-    background-image: url('../../images/Add_Button.svg');
+    background-image: url('../../../../images/Add_Button.svg');
+    background-size: 22px 22px;
     background-repeat: no-repeat;
     background-position: center;
     box-sizing: border-box;
   }
   
-  .add-button:hover {
-    opacity: 0.6;
-  }
   
   @media screen and (max-width: 991px) {
-    .add-button {
+    .button__profile_size_m {
       margin-right: 27px;
     }
   }
   
   @media screen and (max-width: 767px) {
-    .add-button {
+    .button__profile_size_m {
       width: calc(100% - 27px * 2);
       grid-row: 3/4;
       grid-column: 1/5;
@@ -38,7 +35,8 @@
   }
   
   @media screen and (max-width: 479px) {
-    .add-button {
+    .button__profile_size_m {
       width: calc(100% - 19px * 2);
+      background-size: 16px 16px;
     }
   }

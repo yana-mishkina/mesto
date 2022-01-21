@@ -11,73 +11,68 @@
 <body>
   <div class="page">
     <section class="popup">
-      <div class="popup__container">
-        <form class="popup__form">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" value="Жак-Ив Кусто" class="popup__field popup__field_name">
-          <hr class="line line_popup">
-          <input type="text" value="Исследователь океана" class="popup__field popup__field_job">
-          <hr class="line line_popup">
-          <button class="submit-button">Сохранить</button>
-        </form>
-        <button class="close-button">
-          <img class="close-button__icon" alt="" src="./images/Close_Icon.svg">
-        </button>
-      </div>
+      <button class="button button__popup button__popup_type_resert" type="reset">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="./images/Close_Icon.svg">
+      </button>
+      <form class="popup__form" name="profile-form">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" value="Жак-Ив Кусто" class="popup__field popup__field_value_name">
+        <div class="line line__popup"></div>
+        <input type="text" value="Исследователь океана" class="popup__field popup__field_value_job">
+        <div class="line line__popup"></div>
+        <button class="button button__popup button__popup_type_submit" type="submit">Сохранить</button>
+      </form>
     </section>
 
     <header class="header">
-      <img class="header__logo" alt="" src="./images/logo.svg">
-      <hr class="line line_header">
+      <img class="header__logo" alt="Логотип проекта Место" src="./images/logo.svg">
+      <div class="line line__header"></div>
     </header>
 
     <main class="content">
       <section class="profile">
-        <div class="profile__avatar">
-          <div class="profile__image"></div>
-        </div>
+        <div class="profile__image"></div>
         <div class="profile__title-edit">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="edit-button"></button>
+          <button class="button button__profile button__profile_size_s" type="button"></button>
         </div>
-
         <h2 class="profile__subtitle">Исследователь океана</h2>
-        <button class="add-button"></button>
+        <button class="button button__profile button__profile_size_m" type="button"></button>
       </section>
 
       <section class="elements">
         <div class="element">
           <img class="element__photo" alt="Здесь должно быть фото горного озера в Чечне" src="./images/Chechnya.jpg">
           <h2 class="element__title">Чечня</h2>
-          <button class="element__button element__button_disabled"></button>
+          <button class="button__element button__element_disabled" type="button"></button>
         </div>
         <div class="element">
           <img class="element__photo" alt="Здесь должно быть фото южного склона Казбека в Грузии"
             src="./images/Kazbeg.jpg">
           <h2 class="element__title">Гора Казбек</h2>
-          <button class="element__button element__button_disabled"></button>
+          <button class="button__element button__element_disabled" type="button"></button>
         </div>
         <div class="element">
           <img class="element__photo" alt="Здесь должно быть фото скамейки в горах Северной Осетии"
             src="./images/North_Ossetia.jpg">
           <h2 class="element__title">Северная Осетия</h2>
-          <button class="element__button element__button_disabled"></button>
+          <button class="button__element button__element_disabled" type="button"></button>
         </div>
         <div class="element">
           <img class="element__photo" alt="Здесь должно быть фото склона самой высокой горы в России - Эльбруса"
             src="./images/Elbrus.jpg">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__button element__button_disabled"></button>
+          <button class="button__element button__element_disabled" type="button"></button>
         </div>
         <div class="element">
           <img class="element__photo" alt="Здесь должно быть фото горного плато Дагестана" src="./images/Dagestan.jpg">
           <h2 class="element__title">Дагестан</h2>
-          <button class="element__button element__button_disabled"></button>
+          <button class="button__element button__element_disabled" type="button"></button>
         </div>
         <div class="element">
           <img class="element__photo" alt="Здесь должно быть фото Домбая в Карачаево-Черкессии" src="./images/KCHR.jpg">
           <h2 class="element__title">Домбай</h2>
-          <button class="element__button element__button_disabled"></button>
+          <button class="button__element button__element_disabled" type="button"></button>
         </div>
       </section>
     </main>

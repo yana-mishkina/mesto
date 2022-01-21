@@ -1,4 +1,4 @@
-.close-button__icon {
+.button__icon {
     width: 32px;
     height: 32px;
     margin: 0;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 530px) {
-    .close-button__icon {
+    .button__icon {
       width: 20px;
       height: 20px;
     }

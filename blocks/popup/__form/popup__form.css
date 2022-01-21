@@ -1,15 +1,20 @@
 .popup__form {
     width: 430px;
-    grid-row: 2/3;
-    grid-column: 1/2;
     background-color: white;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     text-align: center;
+    position: fixed;
+    top: 195px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+    font-family: inherit;
   }
   
   @media screen and (max-width: 530px) {
     .popup__form {
       width: 282px;
+      top: 123px;
     }
   } 

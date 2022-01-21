@@ -1,4 +1,4 @@
-.line_popup {
+.line__popup {
     max-width: 358px;
     opacity: .2;
     border-color: #000000;
@@ -7,7 +7,7 @@
   }
   
   @media screen and (max-width: 530px) {
-    .line_popup {
+    .line__popup {
       width: 238px;
     }
   } 

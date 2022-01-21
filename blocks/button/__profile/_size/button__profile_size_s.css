@@ -1,25 +1,21 @@
-.edit-button {
+.button__profile_size_s {
     width: 24px;
     height: 24px;
     align-self: center;
     border: 1px solid #FFFFFF;
     background-color: #000000;
     padding: 7px;
-    margin: 0;
-    background-image: url('../../images/Edit_Button.svg');
+    background-image: url('../../../../images/Edit_Button.svg');
+    background-size: 10px 10px;
     background-repeat: no-repeat;
     background-position: center;
     box-sizing: border-box;
   }
-  
-  .edit-button:hover {
-    opacity: 0.6;
-  }
 
   @media screen and (max-width: 530px) {
-    .edit-button {
+    .button__profile_size_s {
       width: 18px;
       height: 18px;
-      padding: 5.25px;
+      background-size: 7.5px 7.5px;
     }
   } 

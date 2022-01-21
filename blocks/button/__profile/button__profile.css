@@ -1,0 +1,7 @@
+.button__profile {
+
+}
+
+.button__profile:hover {
+    opacity: 0.6;
+}

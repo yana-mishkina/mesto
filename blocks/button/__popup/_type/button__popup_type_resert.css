@@ -1,0 +1,24 @@
+.button__popup_type_resert {
+    align-self: end;
+    background: transparent;
+    border: none;
+    background-size: cover;
+    position: fixed;
+    top: 155px;
+    left: calc(50% + 239px);
+    transform: translate(-50%, 0);
+    z-index: 1;
+  }
+  
+  .button__popup_type_resert:hover {
+    opacity: .6;
+  }
+  
+  @media screen and (max-width: 530px) {
+    .button__popup_type_resert {
+      align-self: end;
+      margin-left: 0;
+      top: 87px;
+      left: calc(50% + 131px);
+    }
+  } 
