@@ -1,11 +1,11 @@
-.button_size_s {
+.profile__button_size_s {
     width: 24px;
     height: 24px;
     align-self: center;
     border: 1px solid #FFFFFF;
     background-color: #000000;
     padding: 7px;
-    background-image: url('../../../images/Edit_Button.svg');
+    background-image: url('../../../../images/Edit_Button.svg');
     background-size: 10px 10px;
     background-repeat: no-repeat;
     background-position: center;
@@ -13,7 +13,7 @@
   }
 
   @media screen and (max-width: 530px) {
-    .button_size_s {
+    .profile__button_size_s {
       width: 18px;
       height: 18px;
       background-size: 7.5px 7.5px;

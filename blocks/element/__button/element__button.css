@@ -1,4 +1,4 @@
-.button_element {
+.element__button {
     width: 22px;
     min-height: 19px;
     background-repeat: no-repeat;
@@ -13,6 +13,6 @@
     box-sizing: unset;
   }
   
-  .button_element:hover {
+  .element__button:hover {
     opacity: 0.5;
   }

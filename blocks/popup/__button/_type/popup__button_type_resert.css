@@ -1,4 +1,4 @@
-.button_type_resert {
+.popup__button_type_resert {
     align-self: end;
     background: transparent;
     border: none;
@@ -10,12 +10,8 @@
     z-index: 1;
   }
   
-  .button_type_resert:hover {
-    opacity: .6;
-  }
-  
   @media screen and (max-width: 530px) {
-    .button_type_resert {
+    .popup__button_type_resert {
       align-self: end;
       margin-left: 0;
       top: 87px;
