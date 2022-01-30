@@ -22,4 +22,5 @@
         display: grid;
         grid-template-rows: 120px 1fr;
         padding-top: 0;
-  } 
+    }
+}
