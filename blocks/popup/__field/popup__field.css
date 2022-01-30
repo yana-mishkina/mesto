@@ -8,6 +8,10 @@
     font-size: 14px;
     line-height: 17px;
   }
+
+  .popup__field::placeholder {
+    color: #C4C4C4;
+  }
   
   @media screen and (max-width: 530px) {
     .popup__field {

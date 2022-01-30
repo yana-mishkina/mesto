@@ -1,0 +1,19 @@
+.button_type_like {
+    width: 22px;
+    min-height: 19px;
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    background-position: center;
+    background-image: url('../../../images/element__button_active.svg');
+    align-self: center;
+    justify-self: end;
+    margin: 0 30px 0 0;
+    padding: 0;
+    border: none;
+    box-sizing: unset;
+  }
+  
+  .button_type_like:hover {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,9 @@
+.button_type_delete {
+    position: absolute;
+    width: 18px;
+    height: 19px;
+    background: transparent;
+    top: 20px;
+    right: 20px;
+    border: none;
+  }

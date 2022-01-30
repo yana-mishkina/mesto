@@ -11,15 +11,37 @@
 <body>
   <div class="page">
     <section class="popup">
-      <button class="button popup__button popup__button_type_resert" type="reset">
+      <button class="button button_type_resert popup__button popup__button_type_cancel" type="reset">
         <img class="button__icon" alt="Иконка закрытия попапа" src="./images/Close_Icon.svg">
       </button>
       <form class="popup__form" name="profile-form">
         <h2 class="popup__title">Редактировать профиль</h2>
         <input type="text" value="Жак-Ив Кусто" class="popup__field popup__field_value_name">
         <input type="text" value="Исследователь океана" class="popup__field popup__field_value_job">
-        <button class="button popup__button popup__button_type_submit" type="submit">Сохранить</button>
+        <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Сохранить</button>
       </form>
+    </section>
+
+    <section class="popup">
+      <button class="button button_type_resert popup__button popup__button_type_cancel" type="reset">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="./images/Close_Icon.svg">
+      </button>
+      <form class="popup__form" name="add-photo-form">
+        <h2 class="popup__title">Новое место</h2>
+        <input type="text" placeholder="Название" class="popup__field popup__field_value_place-title">
+        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_value_link">
+        <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Создать</button>
+      </form>
+    </section>
+
+    <section class="popup-viewing">
+      <button class="button button_type_resert popup-viewing__button" type="reset">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="./images/Close_Icon.svg">
+      </button>
+      <figure class="popup-viewing__photo-container">
+        <img class="popup-viewing__photo" alt="Название места" src="#">
+        <figcaption class="popup-viewing__photo-title"></figcaption>
+      </figure>
     </section>
 
     <header class="header">
@@ -31,52 +53,29 @@
         <div class="profile__image"></div>
         <div class="profile__title-edit">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="button profile__button profile__button_size_s" type="button"></button>
+          <button class="button button_type_edit profile__button" type="button"></button>
         </div>
         <h2 class="profile__subtitle">Исследователь океана</h2>
-        <button class="button profile__button profile__button_size_m" type="button"></button>
+        <button class="button button_type_add profile__button" type="button"></button>
       </section>
 
       <section class="elements">
-        <div class="element">
-          <img class="element__photo" alt="Здесь должно быть фото горного озера в Чечне" src="./images/Chechnya.jpg">
-          <h2 class="element__title">Чечня</h2>
-          <button class="button element__button element__button_disabled" type="button"></button>
-        </div>
-        <div class="element">
-          <img class="element__photo" alt="Здесь должно быть фото южного склона Казбека в Грузии"
-            src="./images/Kazbeg.jpg">
-          <h2 class="element__title">Гора Казбек</h2>
-          <button class="button element__button element__button_disabled" type="button"></button>
-        </div>
-        <div class="element">
-          <img class="element__photo" alt="Здесь должно быть фото скамейки в горах Северной Осетии"
-            src="./images/North_Ossetia.jpg">
-          <h2 class="element__title">Северная Осетия</h2>
-          <button class="button element__button element__button_disabled" type="button"></button>
-        </div>
-        <div class="element">
-          <img class="element__photo" alt="Здесь должно быть фото склона самой высокой горы в России - Эльбруса"
-            src="./images/Elbrus.jpg">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="button element__button element__button_disabled" type="button"></button>
-        </div>
-        <div class="element">
-          <img class="element__photo" alt="Здесь должно быть фото горного плато Дагестана" src="./images/Dagestan.jpg">
-          <h2 class="element__title">Дагестан</h2>
-          <button class="button element__button element__button_disabled" type="button"></button>
-        </div>
-        <div class="element">
-          <img class="element__photo" alt="Здесь должно быть фото Домбая в Карачаево-Черкессии" src="./images/KCHR.jpg">
-          <h2 class="element__title">Домбай</h2>
-          <button class="button element__button element__button_disabled" type="button"></button>
-        </div>
       </section>
     </main>
 
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
+    <template id="template">
+      <div class="element">
+        <img class="element__photo" alt="" src="">
+        <h2 class="element__title">Test</h2>
+        <button class="button button_type_like element__button element__button_disabled" type="button"></button>
+        <button class="button button_type_delete element__button" type="reset">
+          <img class="button__icon button__icon_type_delete" alt="Иконка удаления фото" src="./images/Trash_button.svg">
+        </button>
+      </div>
+    </template>
   </div>
 
   <script src="./scripts/index.js"></script>

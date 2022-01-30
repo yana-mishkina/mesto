@@ -1,0 +1,11 @@
+.popup-viewing__button {
+    margin: 0 0 0 8px;
+    padding: 0;
+}
+
+@media screen and (max-width: 530px) {
+    .popup-viewing__button {
+      align-self: end;
+      justify-self: end;
+    }
+  } 

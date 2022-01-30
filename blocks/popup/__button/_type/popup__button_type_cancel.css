@@ -1,0 +1,16 @@
+.popup__button_type_cancel {  
+    position: fixed;
+    top: 155px;
+    left: calc(50% + 239px);
+    transform: translate(-50%, 0);
+    align-self: end;
+}
+
+@media screen and (max-width: 530px) {
+    .popup__button_type_cancel {
+      align-self: end;
+      margin-left: 0;
+      top: 87px;
+      left: calc(50% + 131px);
+    }
+  } 
