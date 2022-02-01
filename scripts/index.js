@@ -44,6 +44,10 @@ const initialCards = [
 ];
 const popupPhoto = document.querySelector('.popup__photo');
 const popupPhotoTitle = document.querySelector('.popup__photo-title');
+const element = template.querySelector('.element');
+const buttonsDelete = document.querySelectorAll('.button_type_delete');
+const buttonsLike = document.querySelectorAll('.button_type_like');
+const photos = document.querySelectorAll('.element__photo');
 
 //открытие попапов
 function openPopup(popup) {
@@ -87,62 +91,60 @@ function editProfileFormSubmitHandler (evt) {
 
 formEditProfile.addEventListener('submit', editProfileFormSubmitHandler); 
 
+//навешиваем слушателей на элемент
+function addEventListener(el) {
+  el.querySelector('.button_type_delete').addEventListener('click', deleteCard);
+  el.querySelector('.button_type_like').addEventListener('click', likeCard);
+  el.querySelector('.element__photo').addEventListener('click', openPhoto);
+}
+
+//функция создания карточки 
+function createCard(cardTitle, cardUrl) {
+  const card = element.cloneNode(true);
+  card.querySelector('.element__title').textContent = cardTitle;
+  card.querySelector('.element__photo').src = cardUrl;
+  card.querySelector('.element__photo').alt = cardTitle;
+  addEventListener(card);
+  return card;
+}
+
 //вставка карочек из коробки
 initialCards.forEach(function(item) {
-  const element = template.querySelector('.element').cloneNode(true);
-  const photo = element.querySelector('.element__photo');
-  photo.src = item.link;
-  photo.alt = item.name;
-  element.querySelector('.element__title').textContent = item.name;
-  elements.append(element); 
+  elements.append(createCard(item.name, item.link)); 
 })
 
 //добавление карточки пользователем
 function addPhotoFormSubmitHandler (evt) {
   evt.preventDefault();
-  const element = template.querySelector('.element').cloneNode(true);
-  const photo = element.querySelector('.element__photo');
-  const title = element.querySelector('.element__title');
-  photo.src = linkInput.value;
-  photo.alt = placeTitleInput.value;
-  title.textContent = placeTitleInput.value;
-  elements.prepend(element); 
+  elements.prepend(createCard(placeTitleInput.value, linkInput.value))
   closePopup(popupAddPhoto);
   linkInput.value = '';
   placeTitleInput.value ='';
-  element.querySelector('.button_type_delete').addEventListener('click', deleteElement);
-  element.querySelector('.button_type_like').addEventListener('click', likeElement);
-  photo.addEventListener('click', openPhoto);
+  placeTitleInput.value ='';
 }
 
 formAddPhoto.addEventListener('submit', addPhotoFormSubmitHandler);
 
 //удаление карточки
-const buttonDelete = document.querySelectorAll('.button_type_delete');
-
-function deleteElement (evt) {
+function deleteCard (evt) {
   evt.target.closest('.element').remove();
 }
 
-buttonDelete.forEach(function(item) {
-  item.addEventListener('click', deleteElement)
+buttonsDelete.forEach(function(item) {
+  item.addEventListener('click', deleteCard)
 }); 
 
 //лайк карточки 
-const buttonLike = document.querySelectorAll('.button_type_like');
-
-function likeElement (evt) {
+function likeCard (evt) {
   evt.target.classList.toggle('element__button_disabled');
 }
 
-buttonLike.forEach(function(item) {
-  item.addEventListener('click', likeElement)
+buttonsLike.forEach(function(item) {
+  item.addEventListener('click', likeCard)
   });
 
 
 //открытие модального окна просмотра фото 
-const photo = document.querySelectorAll('.element__photo');
-
 function openPhoto(evt) {
   if (evt.target.classList.contains('element__photo')) 
     openPopup(popupViewing);
@@ -150,6 +152,6 @@ function openPhoto(evt) {
   popupPhotoTitle.textContent = evt.target.alt;
 }
 
-photo.forEach(function(item) {
+photos.forEach(function(item) {
   item.addEventListener('click', openPhoto);
 });
