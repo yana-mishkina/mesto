@@ -130,28 +130,16 @@ function deleteCard (evt) {
   evt.target.closest('.element').remove();
 }
 
-buttonsDelete.forEach(function(item) {
-  item.addEventListener('click', deleteCard)
-}); 
-
 //лайк карточки 
 function likeCard (evt) {
   evt.target.classList.toggle('element__button_disabled');
 }
-
-buttonsLike.forEach(function(item) {
-  item.addEventListener('click', likeCard)
-  });
-
 
 //открытие модального окна просмотра фото 
 function openPhoto(evt) {
   if (evt.target.classList.contains('element__photo')) 
     openPopup(popupViewing);
   popupPhoto.src = evt.target.src;
+  popupPhoto.alt = evt.target.alt;
   popupPhotoTitle.textContent = evt.target.alt;
 }
-
-photos.forEach(function(item) {
-  item.addEventListener('click', openPhoto);
-});
