@@ -1,4 +1,4 @@
-.popup-viewing__photo {
+.popup__photo {
     max-height: 75vh;
     max-width: 75vw;
     margin: 0;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 530px) {
-    .popup-viewing__photo {
+    .popup__photo {
         padding-top: 16px;
     }
 }

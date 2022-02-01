@@ -1,13 +1,5 @@
-.popup-viewing {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.5s linear;
-    transition-duration: .5s;
+.popup_viewing {
     background-color: rgba(0, 0, 0, .9);
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 1;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
@@ -18,7 +10,7 @@
 }
 
 @media screen and (max-width: 530px) {
-    .popup-viewing {
+    .popup_viewing {
         display: grid;
         grid-template-rows: 120px 1fr;
         padding-top: 0;
