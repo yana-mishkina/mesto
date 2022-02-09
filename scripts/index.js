@@ -48,6 +48,7 @@ const element = template.querySelector('.element');
 const buttonsDelete = document.querySelectorAll('.button_type_delete');
 const buttonsLike = document.querySelectorAll('.button_type_like');
 const photos = document.querySelectorAll('.element__photo');
+const popupPhotoContainer = document.querySelector('.popup__photo-container');
 
 //открытие попапов
 function openPopup(popup) {
@@ -79,7 +80,39 @@ buttonClosePopupAddPhoto.addEventListener('click', function(){
 
 buttonClosePopupViewing.addEventListener('click', function() {
   closePopup(popupViewing);
-})
+});
+
+popupEditProfile.addEventListener('click', function() {
+  closePopup(popupEditProfile);
+});
+
+formEditProfile.addEventListener('click', function(e) {
+  e.stopPropagation();
+});
+
+popupAddPhoto.addEventListener('click', function() {
+  closePopup(popupAddPhoto);
+});
+
+formAddPhoto.addEventListener('click', function(e) {
+  e.stopPropagation();
+});
+
+popupViewing.addEventListener('click', function() {
+  closePopup(popupViewing);
+});
+
+popupPhotoContainer.addEventListener('click', function(e) {
+  e.stopPropagation();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+  closePopup(popupViewing);
+  closePopup(popupAddPhoto);
+  closePopup(popupEditProfile);
+  }
+});
 
 //редактирование информации в профиле
 function editProfileFormSubmitHandler (evt) {
