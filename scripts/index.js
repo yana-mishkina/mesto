@@ -111,8 +111,9 @@ document.addEventListener('keydown', function(e) {
   closePopup(popupViewing);
   closePopup(popupAddPhoto);
   closePopup(popupEditProfile);
-  }
+  } 
 });
+
 
 //редактирование информации в профиле
 function editProfileFormSubmitHandler (evt) {

@@ -1,66 +1,75 @@
 // Функция, которая добавляет класс с ошибкой
-function showInputError(form, input, errorMessage) {
-    const error = form.querySelector(`.${input.id}-error`);
-    input.classList.add('popup__field_type_error');
-    error.classList.add('popup__field-error_active');
-    error.textContent = errorMessage;
+function showInputError(form, input, errorMessage, inputErrorClass, errorClass) {
+  const error = form.querySelector(`.${input.id}-error`);
+  input.classList.add(inputErrorClass);
+  error.classList.add(errorClass);
+  error.textContent = errorMessage;
 }
 
 // Функция, которая удаляет класс с ошибкой
-function hideInputError(form, input) {
-    const error = form.querySelector(`.${input.id}-error`);
-    input.classList.remove('popup__field_type_error');
-    error.classList.remove('popup__field-error_active');
-    error.textContent = '';
+function hideInputError(form, input, inputErrorClass, errorClass) {
+  const error = form.querySelector(`.${input.id}-error`);
+  input.classList.remove(inputErrorClass);
+  error.classList.remove(errorClass);
+  error.textContent = '';
 }
 
 // Функция, которая проверяет валидность поля
-function checkInputValidity(form, input) {
-    if (!input.validity.valid) {
-        showInputError(form, input, input.validationMessage);
-      } else {
-        hideInputError(form, input);
-      }
+function checkInputValidity(form, input, inputErrorClass, errorClass) {
+  if (!input.validity.valid) {
+    showInputError(form, input, input.validationMessage, inputErrorClass, errorClass);
+  } else {
+    hideInputError(form, input, inputErrorClass, errorClass);
+  }
 }
 
 //Проверка всех полей в форме на валидность
-function hasInvalidInput(inputList) {
-    return inputList.some(function(input) {
-      return !input.validity.valid;
-    });
+function hasInvalidInput(inputs) {
+  return inputs.some(function (input) {
+    return !input.validity.valid;
+  });
 }
 
 //Деактивация кнопки сабмита
-function toggleButtonState(inputList, buttonSubmit) {
-    if (hasInvalidInput(inputList)) {
-      buttonSubmit.classList.add('button_disabled');
-    } else {
-      buttonSubmit.classList.remove('button_disabled');
-    }
+function toggleButtonState(inputs, buttonSubmit, inactiveButtonClass) {
+  if (hasInvalidInput(inputs) ) {
+    buttonSubmit.classList.add(inactiveButtonClass);
+    buttonSubmit.setAttribute('disabled', 'disabled');
+  } else {
+    buttonSubmit.classList.remove(inactiveButtonClass);
+    buttonSubmit.removeAttribute('disabled', 'disabled');
+  }
 }
 
 //добавление обработчика всем полям форм
-function setEventListeners(form) {
-    const inputList = Array.from(form.querySelectorAll('.popup__field'));
-    const buttonSubmit = form.querySelector('.button_type_submit');
-    toggleButtonState(inputList, buttonSubmit);
-    inputList.forEach(function(input) {
-      input.addEventListener('input', function () {
-        checkInputValidity(form, input);
-        toggleButtonState(inputList, buttonSubmit);
-      });
+function setEventListeners(form, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
+  const inputs = Array.from(form.querySelectorAll(inputSelector));
+  const buttonSubmit = form.querySelector(submitButtonSelector);
+  toggleButtonState(inputs, buttonSubmit, inactiveButtonClass);
+  inputs.forEach(function (input) {
+    input.addEventListener('input', function () {
+      checkInputValidity(form, input, inputErrorClass, errorClass);
+      toggleButtonState(inputs, buttonSubmit, inactiveButtonClass);
     });
+  });
 }
 
 //Добавление обработчиков всем формам
-function enableValidation() {
-    const formList = Array.from(document.querySelectorAll('.popup__form'));
-    formList.forEach(function(form) {
-      form.addEventListener('submit', function(evt) {
-        evt.preventDefault();
-      });
-      setEventListeners(form);
+function enableValidation(formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
+  const popups = Array.from(document.querySelectorAll(formSelector));
+  popups.forEach(function (form) {
+    form.addEventListener('submit', function (evt) {
+      evt.preventDefault();
     });
+    setEventListeners(form, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass);
+  });
 }
-    
-  enableValidation();
+
+enableValidation(
+  formSelector = '.popup__form', 
+  inputSelector = '.popup__field', 
+  submitButtonSelector = '.button_type_submit', 
+  inactiveButtonClass = 'button_disabled', 
+  inputErrorClass = 'popup__field_type_error', 
+  errorClass = 'popup__field-error_active'
+  );
