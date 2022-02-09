@@ -10,3 +10,9 @@
     font-weight: 400;
     box-sizing: border-box;
 }
+
+@media screen and (max-width: 530px) {
+    .popup__field-error {
+      width: 238px;
+    }
+  } 
