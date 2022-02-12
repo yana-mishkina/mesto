@@ -45,14 +45,14 @@ const initialCards = [
 const popupPhoto = document.querySelector('.popup__photo');
 const popupPhotoTitle = document.querySelector('.popup__photo-title');
 const element = template.querySelector('.element');
-const buttonsDelete = document.querySelectorAll('.button_type_delete');
-const buttonsLike = document.querySelectorAll('.button_type_like');
-const photos = document.querySelectorAll('.element__photo');
 const popupPhotoContainer = document.querySelector('.popup__photo-container');
+const buttonSubmit = formAddPhoto.querySelector('.popup__button_type_save');
+const popups = document.querySelectorAll('.popup');
 
 //открытие попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
 profileEditButtonOpen.addEventListener('click', function() {
@@ -66,10 +66,27 @@ addPhotoButtonOpen.addEventListener('click', function() {
 });
 
 //закртиые попапов
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+function closeByEscape(e) {
+  if (e.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
 }
 
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+}
+
+popups.forEach(function(popup) {
+  popup.addEventListener('mousedown', function(e) {
+      if (e.target.classList.contains('popup_opened')) {
+          closePopup(popup);
+      }
+  })
+})
+
+//не поняла как объединить эти функции в универсальную:
 buttonClosePopupProfile.addEventListener('click', function() {
   closePopup(popupEditProfile);
 });
@@ -82,48 +99,15 @@ buttonClosePopupViewing.addEventListener('click', function() {
   closePopup(popupViewing);
 });
 
-popupEditProfile.addEventListener('click', function() {
-  closePopup(popupEditProfile);
-});
-
-formEditProfile.addEventListener('click', function(e) {
-  e.stopPropagation();
-});
-
-popupAddPhoto.addEventListener('click', function() {
-  closePopup(popupAddPhoto);
-});
-
-formAddPhoto.addEventListener('click', function(e) {
-  e.stopPropagation();
-});
-
-popupViewing.addEventListener('click', function() {
-  closePopup(popupViewing);
-});
-
-popupPhotoContainer.addEventListener('click', function(e) {
-  e.stopPropagation();
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-  closePopup(popupViewing);
-  closePopup(popupAddPhoto);
-  closePopup(popupEditProfile);
-  } 
-});
-
-
 //редактирование информации в профиле
-function editProfileFormSubmitHandler (evt) {
+function handleProfileFormSubmit (evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
     closePopup(popupEditProfile);
 }
 
-formEditProfile.addEventListener('submit', editProfileFormSubmitHandler); 
+formEditProfile.addEventListener('submit', handleProfileFormSubmit); 
 
 //навешиваем слушателей на элемент
 function addEventListener(el) {
@@ -136,8 +120,9 @@ function addEventListener(el) {
 function createCard(cardTitle, cardUrl) {
   const card = element.cloneNode(true);
   card.querySelector('.element__title').textContent = cardTitle;
-  card.querySelector('.element__photo').src = cardUrl;
-  card.querySelector('.element__photo').alt = cardTitle;
+  const photo = card.querySelector('.element__photo');
+  photo.src = cardUrl;
+  photo.alt = cardTitle;
   addEventListener(card);
   return card;
 }
@@ -148,16 +133,17 @@ initialCards.forEach(function(item) {
 })
 
 //добавление карточки пользователем
-function addPhotoFormSubmitHandler (evt) {
+function handleAddPhotoFormSubmit (evt) {
   evt.preventDefault();
   elements.prepend(createCard(placeTitleInput.value, linkInput.value))
   closePopup(popupAddPhoto);
   linkInput.value = '';
   placeTitleInput.value ='';
-  placeTitleInput.value ='';
+  buttonSubmit.classList.add('button_disabled');
+  buttonSubmit.setAttribute('disabled', 'disabled');
 }
 
-formAddPhoto.addEventListener('submit', addPhotoFormSubmitHandler);
+formAddPhoto.addEventListener('submit', handleAddPhotoFormSubmit);
 
 //удаление карточки
 function deleteCard (evt) {

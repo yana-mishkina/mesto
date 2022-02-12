@@ -25,14 +25,14 @@ function checkInputValidity(form, input, inputErrorClass, errorClass) {
 
 //Проверка всех полей в форме на валидность
 function hasInvalidInput(inputs) {
-  return inputs.some(function (input) {
+  return inputs.some(function(input) {
     return !input.validity.valid;
   });
 }
 
 //Деактивация кнопки сабмита
 function toggleButtonState(inputs, buttonSubmit, inactiveButtonClass) {
-  if (hasInvalidInput(inputs) ) {
+  if (hasInvalidInput(inputs)) {
     buttonSubmit.classList.add(inactiveButtonClass);
     buttonSubmit.setAttribute('disabled', 'disabled');
   } else {
@@ -56,8 +56,8 @@ function setEventListeners(form, inputSelector, submitButtonSelector, inactiveBu
 
 //Добавление обработчиков всем формам
 function enableValidation(formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
-  const popups = Array.from(document.querySelectorAll(formSelector));
-  popups.forEach(function (form) {
+  const forms = Array.from(document.querySelectorAll(formSelector));
+  forms.forEach(function (form) {
     form.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
