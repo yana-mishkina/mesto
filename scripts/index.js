@@ -1,3 +1,7 @@
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+export { openPopup, popupViewing };
+
 const profileEditButtonOpen = document.querySelector('.button_type_edit');
 const addPhotoButtonOpen = document.querySelector('.button_type_add');
 const popupEditProfile = document.querySelector('.popup_profile');
@@ -12,7 +16,6 @@ const nameInput = document.querySelector('.popup__field_value_name');
 const jobInput = document.querySelector('.popup__field_value_job');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-const template = document.querySelector('#template').content;
 const elements = document.querySelector('.elements');
 const linkInput = document.querySelector('.popup__field_value_link');
 const placeTitleInput = document.querySelector('.popup__field_value_place-title');
@@ -42,10 +45,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-const popupPhoto = document.querySelector('.popup__photo');
-const popupPhotoTitle = document.querySelector('.popup__photo-title');
-const element = template.querySelector('.element');
-const popupPhotoContainer = document.querySelector('.popup__photo-container');
+
 const buttonSubmit = formAddPhoto.querySelector('.popup__button_type_save');
 const popups = document.querySelectorAll('.popup');
 
@@ -86,7 +86,6 @@ popups.forEach(function(popup) {
   })
 })
 
-//не поняла как объединить эти функции в универсальную:
 buttonClosePopupProfile.addEventListener('click', function() {
   closePopup(popupEditProfile);
 });
@@ -116,26 +115,20 @@ function addEventListener(el) {
   el.querySelector('.element__photo').addEventListener('click', openPhoto);
 }
 
-//функция создания карточки 
-function createCard(cardTitle, cardUrl) {
-  const card = element.cloneNode(true);
-  card.querySelector('.element__title').textContent = cardTitle;
-  const photo = card.querySelector('.element__photo');
-  photo.src = cardUrl;
-  photo.alt = cardTitle;
-  addEventListener(card);
-  return card;
-}
+//создание карточек из коробки
+initialCards.forEach((item) => {
+	const card = new Card(item.name, item.link);
+	const cardElement = card.generate();
+  elements.append(cardElement);
+});
 
-//вставка карочек из коробки
-initialCards.forEach(function(item) {
-  elements.append(createCard(item.name, item.link)); 
-})
 
 //добавление карточки пользователем
 function handleAddPhotoFormSubmit (evt) {
   evt.preventDefault();
-  elements.prepend(createCard(placeTitleInput.value, linkInput.value))
+  const card = new Card(placeTitleInput.value, linkInput.value);
+	const cardElement = card.generate();
+  elements.prepend(cardElement);
   closePopup(popupAddPhoto);
   linkInput.value = '';
   placeTitleInput.value ='';
@@ -145,21 +138,14 @@ function handleAddPhotoFormSubmit (evt) {
 
 formAddPhoto.addEventListener('submit', handleAddPhotoFormSubmit);
 
-//удаление карточки
-function deleteCard (evt) {
-  evt.target.closest('.element').remove();
+//валидация форм
+const config = {
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.button_type_submit',
+  inactiveButtonClass: 'button_disabled',
+  inputErrorClass: 'popup__field_type_error',
+  errorClass: 'popup__field-error_active'
 }
 
-//лайк карточки 
-function likeCard (evt) {
-  evt.target.classList.toggle('element__button_disabled');
-}
-
-//открытие модального окна просмотра фото 
-function openPhoto(evt) {
-  if (evt.target.classList.contains('element__photo')) 
-    openPopup(popupViewing);
-  popupPhoto.src = evt.target.src;
-  popupPhoto.alt = evt.target.alt;
-  popupPhotoTitle.textContent = evt.target.alt;
-}
+new FormValidator(config, formEditProfile).enableValidation();
+new FormValidator(config, formAddPhoto).enableValidation();
