@@ -48,6 +48,19 @@ const initialCards = [
 
 const buttonSubmit = formAddPhoto.querySelector('.popup__button_type_save');
 const popups = document.querySelectorAll('.popup');
+const config = {
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.button_type_submit',
+  inactiveButtonClass: 'button_disabled',
+  inputErrorClass: 'popup__field_type_error',
+  errorClass: 'popup__field-error_active'
+}
+
+const formValidatorEditProfile = new FormValidator(config, formEditProfile);
+formValidatorEditProfile.enableValidation();
+
+const formValidatorAddPhoto = new FormValidator(config, formAddPhoto);
+formValidatorAddPhoto.enableValidation();
 
 //открытие попапов
 function openPopup(popup) {
@@ -55,14 +68,18 @@ function openPopup(popup) {
   document.addEventListener('keydown', closeByEscape);
 }
 
-profileEditButtonOpen.addEventListener('click', function() {
+profileEditButtonOpen.addEventListener('click', function () {
   openPopup(popupEditProfile);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
+  formValidatorEditProfile.resetError();
+  formValidatorEditProfile.toggleButtonState();
 });
 
-addPhotoButtonOpen.addEventListener('click', function() {
+addPhotoButtonOpen.addEventListener('click', function () {
   openPopup(popupAddPhoto);
+  formValidatorAddPhoto.resetError();
+  formValidatorAddPhoto.toggleButtonState();
 });
 
 //закртиые попапов
@@ -78,35 +95,35 @@ function closePopup(popup) {
   document.removeEventListener('keydown', closeByEscape);
 }
 
-popups.forEach(function(popup) {
-  popup.addEventListener('mousedown', function(e) {
-      if (e.target.classList.contains('popup_opened')) {
-          closePopup(popup);
-      }
+popups.forEach(function (popup) {
+  popup.addEventListener('mousedown', function (e) {
+    if (e.target.classList.contains('popup_opened')) {
+      closePopup(popup);
+    }
   })
 })
 
-buttonClosePopupProfile.addEventListener('click', function() {
+buttonClosePopupProfile.addEventListener('click', function () {
   closePopup(popupEditProfile);
 });
 
-buttonClosePopupAddPhoto.addEventListener('click', function(){
+buttonClosePopupAddPhoto.addEventListener('click', function () {
   closePopup(popupAddPhoto);
 });
 
-buttonClosePopupViewing.addEventListener('click', function() {
+buttonClosePopupViewing.addEventListener('click', function () {
   closePopup(popupViewing);
 });
 
 //редактирование информации в профиле
-function handleProfileFormSubmit (evt) {
-    evt.preventDefault();
-    profileTitle.textContent = nameInput.value;
-    profileSubtitle.textContent = jobInput.value;
-    closePopup(popupEditProfile);
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = nameInput.value;
+  profileSubtitle.textContent = jobInput.value;
+  closePopup(popupEditProfile);
 }
 
-formEditProfile.addEventListener('submit', handleProfileFormSubmit); 
+formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
 //навешиваем слушателей на элемент
 function addEventListener(el) {
@@ -117,35 +134,23 @@ function addEventListener(el) {
 
 //создание карточек из коробки
 initialCards.forEach((item) => {
-	const card = new Card(item.name, item.link);
-	const cardElement = card.generate();
+  const card = new Card(item.name, item.link);
+  const cardElement = card.generate();
   elements.append(cardElement);
 });
 
 
 //добавление карточки пользователем
-function handleAddPhotoFormSubmit (evt) {
+function handleAddPhotoFormSubmit(evt) {
   evt.preventDefault();
   const card = new Card(placeTitleInput.value, linkInput.value);
-	const cardElement = card.generate();
+  const cardElement = card.generate();
   elements.prepend(cardElement);
   closePopup(popupAddPhoto);
   linkInput.value = '';
-  placeTitleInput.value ='';
+  placeTitleInput.value = '';
   buttonSubmit.classList.add('button_disabled');
   buttonSubmit.setAttribute('disabled', 'disabled');
 }
 
 formAddPhoto.addEventListener('submit', handleAddPhotoFormSubmit);
-
-//валидация форм
-const config = {
-  inputSelector: '.popup__field',
-  submitButtonSelector: '.button_type_submit',
-  inactiveButtonClass: 'button_disabled',
-  inputErrorClass: 'popup__field_type_error',
-  errorClass: 'popup__field-error_active'
-}
-
-new FormValidator(config, formEditProfile).enableValidation();
-new FormValidator(config, formAddPhoto).enableValidation();
