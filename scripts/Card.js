@@ -44,7 +44,7 @@ class Card {
         this._card.querySelector('.button_type_like').addEventListener('click', (e) => {
             this._likeCard(e);
         });
-        this._card.querySelector('.element__photo').addEventListener('click', () => {
+        this._cardPhoto.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
         });
     }
