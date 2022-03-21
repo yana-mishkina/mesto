@@ -1,7 +1,5 @@
-import { Popup } from "./Popup.js";
-export { PopupWithImage };
-
-class PopupWithImage extends Popup {
+import Popup from "./Popup.js";
+export default class PopupWithImage extends Popup {
     constructor(popupSelector, photo, photoTitle) {
         super(popupSelector);
         this._photo = photo;

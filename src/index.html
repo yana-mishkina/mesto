@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Место</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body>
   <div class="page">
     <section class="popup popup_profile">
       <button class="button button_profile button_type_resert popup__button popup__button_type_cancel" type="reset">
-        <img class="button__icon" alt="Иконка закрытия попапа" src="./images/Close_Icon.svg">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="<%=require('./images/Close_Icon.svg')%>">
       </button>
       <form class="popup__form" name="profile-form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -28,7 +27,7 @@
 
     <section class="popup popup_add-photo">
       <button class="button button_add-photo button_type_resert popup__button popup__button_type_cancel" type="reset">
-        <img class="button__icon" alt="Иконка закрытия попапа" src="./images/Close_Icon.svg">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="<%=require('./images/Close_Icon.svg')%>">
       </button>
       <form class="popup__form" name="add-photo-form" novalidate>
         <h2 class="popup__title">Новое место</h2>
@@ -44,7 +43,7 @@
 
     <section class="popup popup_viewing">
       <button class="button button_viewing button_type_resert popup__button" type="reset">
-        <img class="button__icon" alt="Иконка закрытия попапа" src="./images/Close_Icon.svg">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="<%=require('./images/Close_Icon.svg')%>">
       </button>
       <figure class="popup__photo-container">
         <img class="popup__photo" alt="Название места" src="#">
@@ -53,7 +52,7 @@
     </section>
 
     <header class="header">
-      <img class="header__logo" alt="Логотип проекта Место" src="./images/logo.svg">
+      <img class="header__logo" alt="Логотип проекта Место" src="<%=require('./images/logo.svg')%>">
     </header>
 
     <main class="content">
@@ -80,21 +79,11 @@
         <h2 class="element__title">Test</h2>
         <button class="button button_type_like element__button element__button_disabled" type="button"></button>
         <button class="button button_type_delete element__button" type="reset">
-          <img class="button__icon button__icon_type_delete" alt="Иконка удаления фото" src="./images/Trash_button.svg">
+          <img class="button__icon button__icon_type_delete" alt="Иконка удаления фото" src="<%=require('./images/Trash_button.svg')%>">
         </button>
       </div>
     </template>
   </div>
-
-  <script type="module" src="./pages/index.js"></script>
-  <script type="module" src="./utils/constants.js"></script>
-  <script type="module" src="./components/FormValidator.js"></script>
-  <script type="module" src="./components/Card.js"></script>
-  <script type="module" src="./components/Popup.js"></script>
-  <script type="module" src="./components/PopupWithForm.js"></script>
-  <script type="module" src="./components/PopupWithImage.js"></script>
-  <script type="module" src="./components/Section.js"></script>
-  <script type="module" src="./components/UserInfo.js"></script>
 </body>
 
 </html>
