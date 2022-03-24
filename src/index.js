@@ -16,8 +16,6 @@ import {
   nameInput,
   jobInput,
   initialCards,
-  popupPhotoSelector,
-  popupPhotoTitleSelector,
   config,
   profileTitleSelector,
   profileSubtitleSelector,
@@ -28,9 +26,9 @@ import {
 function createNewCard(item) {
   const card = new Card({ 
     name: item.name, 
-    link: item.link, 
-    handleCardClick: (item) => {
-      popupPhotosViewing.open(item.name, item.link);
+    link: item.link,
+    handleCardClick: () => {
+      popupPhotosViewing.open(item.link, item.name);
       },
     }, 
   cardSelector);
@@ -47,7 +45,7 @@ const cards = new Section({
 containerSelector);
 cards.renderer();
 
-const popupPhotosViewing = new PopupWithImage(popupViewingSelector, popupPhotoSelector, popupPhotoTitleSelector);
+const popupPhotosViewing = new PopupWithImage(popupViewingSelector);
 popupPhotosViewing.setEventListeners();
 
 const userInfo = new UserInfo(profileTitleSelector, profileSubtitleSelector);
@@ -55,7 +53,7 @@ const userInfo = new UserInfo(profileTitleSelector, profileSubtitleSelector);
 const popupEditProfile = new PopupWithForm(
   popupEditProfileSelector, 
   (formValues) => {
-    userInfo.setUserInfo(formValues);
+    userInfo.setUserInfo({ name: formValues.name, job: formValues.job });
     popupEditProfile.close();
   }
 );

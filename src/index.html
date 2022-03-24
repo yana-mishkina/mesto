@@ -15,11 +15,11 @@
       </button>
       <form class="popup__form" name="profile-form" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" value="Жак-Ив Кусто" class="popup__field popup__field_value_name" id="name-input"
+        <input type="text" value="Жак-Ив Кусто" class="popup__field popup__field_value_name" id="name-input" name="name"
           maxlength="40" minlength="2" required>
         <span class="popup__field-error name-input-error"></span>
         <input type="text" value="Исследователь океана" class="popup__field popup__field_value_job" id="job-input"
-          maxlength="200" minlength="2" required>
+          name="job" maxlength="200" minlength="2" required>
         <span class="popup__field-error job-input-error"></span>
         <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Сохранить</button>
       </form>
@@ -32,10 +32,10 @@
       <form class="popup__form" name="add-photo-form" novalidate>
         <h2 class="popup__title">Новое место</h2>
         <input type="text" placeholder="Название" class="popup__field popup__field_value_place-title" id="place-input"
-          maxlength="30" minlength="2" required>
+          name="name" maxlength="30" minlength="2" required>
         <span class="popup__field-error place-input-error"></span>
         <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_value_link" id="link-input"
-          required>
+          name="link" required>
         <span class="popup__field-error link-input-error"></span>
         <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Создать</button>
       </form>
@@ -79,7 +79,8 @@
         <h2 class="element__title">Test</h2>
         <button class="button button_type_like element__button element__button_disabled" type="button"></button>
         <button class="button button_type_delete element__button" type="reset">
-          <img class="button__icon button__icon_type_delete" alt="Иконка удаления фото" src="<%=require('./images/Trash_button.svg')%>">
+          <img class="button__icon button__icon_type_delete" alt="Иконка удаления фото"
+            src="<%=require('./images/Trash_button.svg')%>">
         </button>
       </div>
     </template>
