@@ -1,13 +1,13 @@
 export default class FormValidator {
-  constructor(config, formSelector) {
+  constructor(config, formElement) {
     this._config = config;
-    this._formSelector = formSelector;
-    this._inputs = Array.from(this._formSelector.querySelectorAll(this._config.inputSelector));
-    this._buttonSubmit = this._formSelector.querySelector(this._config.submitButtonSelector);
+    this._formElement = formElement;
+    this._inputs = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
+    this._buttonSubmit = this._formElement.querySelector(this._config.submitButtonSelector);
   }
   _showInputError(input, errorMessage) {
     const { inputErrorClass, errorClass } = this._config;
-    const error = this._formSelector.querySelector(`.${input.id}-error`);
+    const error = this._formElement.querySelector(`.${input.id}-error`);
     input.classList.add(inputErrorClass);
     error.classList.add(errorClass);
     error.textContent = errorMessage;
@@ -15,7 +15,7 @@ export default class FormValidator {
 
   _hideInputError(input) {
     const { inputErrorClass, errorClass } = this._config;
-    const error = this._formSelector.querySelector(`.${input.id}-error`);
+    const error = this._formElement.querySelector(`.${input.id}-error`);
     input.classList.remove(inputErrorClass);
     error.classList.remove(errorClass);
     error.textContent = '';
@@ -57,7 +57,7 @@ export default class FormValidator {
   }
 
   enableValidation() {
-    this._formSelector.addEventListener('submit', function (evt) {
+    this._formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
     this._setEventListeners();

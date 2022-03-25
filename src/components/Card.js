@@ -27,21 +27,26 @@ export default class Card {
         return this._card;
     }
 
-    _likeCard(e) {
-        e.target.classList.toggle('element__button_disabled');
+    _likeCard() {
+        this._likeButton = this._card.querySelector('.button_type_like');
+        this._likeButton.classList.toggle('element__button_disabled');
     }
 
-    _deleteCard(e) {
-        e.target.closest('.element').remove();
+    _deleteCard() {
+       this._card.closest('.element').remove();
+       this._card = null;
     }
 
     _addEventListener() {
         this._card.querySelector('.button_type_delete').addEventListener('click', (e) => {
             this._deleteCard(e);
         });
-        this._card.querySelector('.button_type_like').addEventListener('click', (e) => {
-            this._likeCard(e);
+
+        this._likeButton = this._card.querySelector('.button_type_like');
+        this._likeButton.addEventListener('click', () => {
+            this._likeCard();
         });
+
         this._cardPhoto.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
         });
