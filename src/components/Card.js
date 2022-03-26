@@ -28,12 +28,11 @@ export default class Card {
     }
 
     _likeCard() {
-        this._likeButton = this._card.querySelector('.button_type_like');
         this._likeButton.classList.toggle('element__button_disabled');
     }
 
     _deleteCard() {
-       this._card.closest('.element').remove();
+       this._card.remove();
        this._card = null;
     }
 
