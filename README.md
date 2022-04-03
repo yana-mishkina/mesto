@@ -22,4 +22,4 @@
 Мишкина Яна mishkina_yana@mail.ru
 
 ##
-Ссылка на GitHub Pages https://yana-mishkina.github.io/mesto/index.html
+https://yana-mishkina.github.io/mesto/
