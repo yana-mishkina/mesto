@@ -51,6 +51,28 @@
       </figure>
     </section>
 
+    <section class="popup popup_delete-confirm">
+      <button class="button button_add-photo button_type_resert popup__button popup__button_type_cancel" type="reset">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="<%=require('./images/Close_Icon.svg')%>">
+      </button>
+      <form class="popup__form">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Да</button>
+      </form>
+    </section>
+
+    <section class="popup popup_edit-avatar">
+      <button class="button button_add-photo button_type_resert popup__button popup__button_type_cancel" type="reset">
+        <img class="button__icon" alt="Иконка закрытия попапа" src="<%=require('./images/Close_Icon.svg')%>">
+      </button>
+      <form class="popup__form">
+        <h2 class="popup__title">Обновить аватар</h2>
+        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_value_link" id="link-input"
+          name="link" required>
+        <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Сохранить</button>
+      </form>
+    </section>
+
     <header class="header">
       <img class="header__logo" alt="Логотип проекта Место" src="<%=require('./images/logo.svg')%>">
     </header>
@@ -59,10 +81,10 @@
       <section class="profile">
         <div class="profile__image"></div>
         <div class="profile__title-edit">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title"></h1>
           <button class="button button_type_edit profile__button" type="button"></button>
         </div>
-        <h2 class="profile__subtitle">Исследователь океана</h2>
+        <h2 class="profile__subtitle"></h2>
         <button class="button button_type_add profile__button" type="button"></button>
       </section>
 
@@ -78,6 +100,7 @@
         <img class="element__photo" alt="" src="#">
         <h2 class="element__title">Test</h2>
         <button class="button button_type_like element__button element__button_disabled" type="button"></button>
+        <span class="element__like-count"></span>
         <button class="button button_type_delete element__button" type="reset">
           <img class="button__icon button__icon_type_delete" alt="Иконка удаления фото"
             src="<%=require('./images/Trash_button.svg')%>">
