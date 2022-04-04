@@ -42,3 +42,6 @@
 @import url(../blocks/popup/__field-error/popup__field-error.css);
 @import url(../blocks/popup/__field-error/_active/popup__field-error_active.css);
 @import url(../blocks/button/_disabled/button_disabled.css);
+@import url(../blocks/popup/__title/_type/popup__title_type_delete-confirm.css);
+@import url(../blocks/popup/__form/_type/popup__form_type_delete-confirm.css);
+@import url(../blocks/element/__like-count/element__like-count.css);

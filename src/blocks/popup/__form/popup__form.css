@@ -18,3 +18,7 @@
       top: 123px;
     }
   } 
+
+  .popup__form_type_delete-confirm {
+    height: 221px;
+  }
