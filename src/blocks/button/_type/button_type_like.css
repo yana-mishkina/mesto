@@ -7,7 +7,7 @@
     background-image: url('../../../images/element__button_active.svg');
     align-self: center;
     justify-self: end;
-    margin: 0 30px 0 0;
+    margin: 22px 30px 0 3px;
     padding: 0;
     border: none;
     box-sizing: unset;
@@ -16,3 +16,5 @@
   .button_type_like:hover {
     opacity: 0.5;
   }
+
+  
