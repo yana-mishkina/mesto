@@ -1,27 +1,8 @@
 .profile__image {
   width: 127.5px;
   height: 127.5px;
-  background-image: url('../../../images/Avatar.png');
-  grid-row: 1/3;
-  align-self: center;
-  padding: 0 3.75px 0 0;
-  box-sizing: border-box;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   border-radius: 50%;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 991px) {
-  .profile__image {
-    padding-left: 27px;
-    margin-bottom: 22.25px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .profile__image {
-    margin-bottom: 36px;
-  }
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
 }

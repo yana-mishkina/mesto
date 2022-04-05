@@ -65,9 +65,9 @@
       <button class="button button_add-photo button_type_resert popup__button popup__button_type_cancel" type="reset">
         <img class="button__icon" alt="Иконка закрытия попапа" src="<%=require('./images/Close_Icon.svg')%>">
       </button>
-      <form class="popup__form" name="edit-avatar-form">
-        <h2 class="popup__title">Обновить аватар</h2>
-        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_value_link" id="link-input"
+      <form class="popup__form popup__form_type_edit-avatar" name="edit-avatar-form">
+        <h2 class="popup__title popup__title_type_edit-avatar">Обновить аватар</h2>
+        <input type="url" placeholder="Ссылка на картинку" class="popup__field popup__field_value_link popup__field_type_edit-avatar" id="link-input"
           name="avatar" required>
         <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Сохранить</button>
       </form>
@@ -79,7 +79,10 @@
 
     <main class="content">
       <section class="profile">
-        <div class="profile__image"></div>
+        <button class="button button_type_edit-avatar profile__button" type="button">
+          <img class="profile__image" alt="Фото профиля" src="<%=require('./images/Avatar.png')%>">
+          <div class="profile__edit-icon"></div>
+        </button>
         <div class="profile__title-edit">
           <h1 class="profile__title"></h1>
           <button class="button button_type_edit profile__button" type="button"></button>
