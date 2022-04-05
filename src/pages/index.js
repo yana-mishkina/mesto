@@ -159,4 +159,12 @@ addPhotoButtonOpen.addEventListener('click', function () {
   popupAddPhoto.open();
 });
 
+const popupEditAvatar = new PopupWithForm('.popup_edit-avatar');
+popupEditAvatar.setEventListeners();
 
+const editAvatarButtonOpen = document.querySelector('.button_type_edit-avatar');
+const avatarInput = document.querySelector('.popup__field_type_edit-avatar');
+
+editAvatarButtonOpen.addEventListener('click', function() {
+  popupEditAvatar.open();
+});
