@@ -20,7 +20,8 @@ import {
   profileTitleSelector,
   profileSubtitleSelector,
   cardSelector,
-  containerSelector
+  containerSelector,
+  formEditAvatarSelector
 } from "../utils/constants.js";
 import { api } from "../components/Api.js";
 
@@ -29,6 +30,7 @@ let userId;
 api.getProfile()
   .then(res => {
     userInfo.setUserInfo(res.name, res.about);
+    userInfo.setUserAvatar(res.avatar);
     userId = res._id;
   })
 
@@ -93,7 +95,9 @@ cards.renderer();
 const popupPhotosViewing = new PopupWithImage(popupViewingSelector);
 popupPhotosViewing.setEventListeners();
 
-const userInfo = new UserInfo(profileTitleSelector, profileSubtitleSelector);
+const avatarSelector = ('.profile__image');
+
+const userInfo = new UserInfo(profileTitleSelector, profileSubtitleSelector, avatarSelector);
 
 const popupEditProfile = new PopupWithForm(
   popupEditProfileSelector, 
@@ -124,21 +128,6 @@ const popupAddPhoto = new PopupWithForm(popupAddPhotoSelector,
 );
 popupAddPhoto.setEventListeners();
 
-function deleteCard(card) {
-  btnSubmitDel.textContent = 'Удаление...';
-  api.deleteCard(card.getCardId())
-    .then(() => {
-      card.delete();
-    })
-    .catch((err) => {
-      console.log(`Невозможно удалить карточку. Ошибка ${err}.`);
-    })
-    .finally(() => {
-      popupConfirm.close();
-      btnSubmitDel.textContent = 'Да';
-    });
-}
-
 
 const popupDeleteConfirm = new PopupWithForm('.popup_delete-confirm');
 popupDeleteConfirm.setEventListeners();
@@ -159,11 +148,20 @@ addPhotoButtonOpen.addEventListener('click', function () {
   popupAddPhoto.open();
 });
 
-const popupEditAvatar = new PopupWithForm('.popup_edit-avatar');
+const popupEditAvatar = new PopupWithForm('.popup_edit-avatar',
+(formValue) => {
+  api.editAvatar(formValue.avatar)
+    .then(() => {
+      userInfo.setUserAvatar(formValue.avatar);
+    });
+    popupEditAvatar.close();
+});
 popupEditAvatar.setEventListeners();
 
+const formValidatorEditAvatar = new FormValidator(config, formEditAvatarSelector);
+formValidatorEditAvatar.enableValidation();
+
 const editAvatarButtonOpen = document.querySelector('.button_type_edit-avatar');
-const avatarInput = document.querySelector('.popup__field_type_edit-avatar');
 
 editAvatarButtonOpen.addEventListener('click', function() {
   popupEditAvatar.open();

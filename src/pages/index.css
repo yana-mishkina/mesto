@@ -45,8 +45,7 @@
 @import url(../blocks/popup/__title/_type/popup__title_type_delete-confirm.css);
 @import url(../blocks/popup/__form/_type/popup__form_type_delete-confirm.css);
 @import url(../blocks/element/__like-count/element__like-count.css);
-@import url(../blocks/popup/__field/_type/popup__field_type_edit-avatar.css);
-@import url(../blocks/popup/__title/_type/popup__title_type_edit-avatar.css);
 @import url(../blocks/popup/__form/_type/popup__form_type_edit-avatar.css);
+@import url(../blocks/popup/__title/_type/popup__title_type_edit-avatar.css);
 @import url(../blocks/button/_type/button_type_edit-avatar.css);
 @import url(../blocks/profile/__edit-icon/profile__edit-icon.css);

@@ -5,6 +5,7 @@ export const popupAddPhotoSelector = '.popup_add-photo';
 export const popupViewingSelector = '.popup_viewing';
 export const formEditProfileSelector = document.querySelector('form[name=profile-form]');
 export const formAddPhotoSelector = document.querySelector('form[name=add-photo-form]');
+export const formEditAvatarSelector = document.querySelector('form[name=edit-avatar-form]');
 export const nameInput = document.querySelector('.popup__field_value_name');
 export const jobInput = document.querySelector('.popup__field_value_job');
 export const initialCards = [

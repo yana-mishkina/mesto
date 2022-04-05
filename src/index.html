@@ -69,6 +69,7 @@
         <h2 class="popup__title popup__title_type_edit-avatar">Обновить аватар</h2>
         <input type="url" placeholder="Ссылка на фото" class="popup__field popup__field_value_link popup__field_type_edit-avatar" id="link-input"
           name="avatar" required>
+        <span class="popup__field-error link-input-error"></span>
         <button class="button button_type_submit popup__button popup__button_type_save" type="submit">Сохранить</button>
       </form>
     </section>
@@ -80,7 +81,7 @@
     <main class="content">
       <section class="profile">
         <button class="button button_type_edit-avatar profile__button" type="button">
-          <img class="profile__image" alt="Фото профиля" src="<%=require('./images/Avatar.png')%>">
+          <img class="profile__image" alt="Фото профиля" src="#" id="photo">
           <div class="profile__edit-icon"></div>
         </button>
         <div class="profile__title-edit">
