@@ -1,11 +1,11 @@
 export default class Card {
-    constructor({ name, link, likes, id, userId, ownerId, handleCardClick, handleDeleteClick, handleLikeClick }, cardSelector) {
+    constructor({ name, link, likes, id, userId, owner, handleCardClick, handleDeleteClick, handleLikeClick }, cardSelector) {
         this._name = name;
         this._link = link;
         this._likes = likes;
         this._id = id;
         this._userId = userId;
-        this._ownerId = ownerId;
+        this._owner = owner;
         this._handleCardClick = handleCardClick;
         this._handleDeleteClick = handleDeleteClick;
         this._handleLikeClick = handleLikeClick;
@@ -31,7 +31,7 @@ export default class Card {
         this._cardPhoto.alt = this._name;
         this._card.querySelector('.element__title').textContent = this._name;
         this.setLikeCount(this._likes);
-        if (this._ownerId !== this._userId) {
+        if (this._owner !== this._userId) {
             this._deleteButton.style.display = 'none';
         }
 
