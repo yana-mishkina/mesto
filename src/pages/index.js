@@ -38,6 +38,23 @@ api.getData()
   })
   .catch((err) => console.log(err));
 
+function createNewCard(item) {
+  const card = new Card({ 
+    name: item.name, 
+    link: item.link,
+    likes: item.likes,
+    id: item._id,
+    userId: userId,
+    owner: item.owner._id,
+    handleCardClick: () => handleCardClick(item),
+    handleDeleteClick: () => handleDeleteClick(card),
+    handleLikeClick: () => handleLikeClick(card, item)
+  },
+  cardSelector);
+  
+  return card.generate();
+}
+
 function handleCardClick(card) {
   popupPhotosViewing.open(card.link, card.name);
 }
@@ -79,23 +96,6 @@ function handleLikeClick(card, data) {
       })
     }
   }
-
-function createNewCard(item) {
-  const card = new Card({ 
-    name: item.name, 
-    link: item.link,
-    likes: item.likes,
-    id: item._id,
-    userId: userId,
-    owner: item.owner._id,
-    handleCardClick: () => handleCardClick(item),
-    handleDeleteClick: () => handleDeleteClick(card),
-    handleLikeClick: () => handleLikeClick(card, item)
-  },
-  cardSelector);
-  
-  return card.generate();
-}
 
 const cards = new Section({
   renderer: (item) => {
@@ -151,8 +151,8 @@ const popupAddPhoto = new PopupWithForm(popupAddPhotoSelector,
     popupAddPhoto.renderLoading('Сохранение...');
     api.addCard(item.name, item.link)
       .then(res => {
-        const cardElement = createNewCard({ name: res.name, link: res.link, likes: res.likes, id: res._id, userId: userId,  owner: res.owner._id });
-        cards.addNewItem(cardElement);
+        const newCard = createNewCard(res)
+        cards.addNewItem(newCard);
         popupAddPhoto.close();
       })
       .catch((err) => {

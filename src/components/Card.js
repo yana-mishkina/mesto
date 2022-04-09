@@ -40,14 +40,6 @@ export default class Card {
         return this._card;
     }
 
-    _likeCard() {
-        this._likeButton.classList.remove('element__button_disabled');
-    }
-
-    _nonLikeCard() {
-        this._likeButton.classList.add('element__button_disabled');
-    }
-
     isLiked() {
         const userHasLikedCard = this._likes.find(user => user._id === this._userId);
         return userHasLikedCard;
@@ -58,9 +50,9 @@ export default class Card {
         this._likeCountElement.textContent = this._likes.length;
 
         if (this.isLiked()) {
-            this._likeCard();
+            this._likeButton.classList.remove('element__button_disabled');
         } else {
-            this._nonLikeCard();
+            this._likeButton.classList.add('element__button_disabled');
         }
     }
 
@@ -75,7 +67,7 @@ export default class Card {
         });
 
         this._likeButton.addEventListener('click', () => {
-            this._handleLikeClick(this._id);
+            this._handleLikeClick(this, this._id);
         });
 
         this._cardPhoto.addEventListener('click', () => {
