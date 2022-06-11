@@ -44,5 +44,3 @@ npm run dev
 * [Макет 3](https://www.figma.com/file/qk3Axq4MZryPzGFfCnUnrP/sprint-6-mesto?node-id=0%3A1)
 * [Макет 4](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9)
 
-##
-https://yana-mishkina.github.io/mesto/
